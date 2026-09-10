@@ -8,11 +8,23 @@ import downloadRoutes from "./routes/download";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Allowed frontend origins for CORS
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://pdf-compressor-client.vercel.app",
+];
+
 // Middleware
 // CORS allows our React app to communicate with this server
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST"],
   }),
 );
