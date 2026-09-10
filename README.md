@@ -46,7 +46,7 @@ A high-performance, secure, full-stack web application designed to compress PDF 
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/YOUR_USERNAME/pdf-compressor.git](https://github.com/YOUR_USERNAME/pdf-compressor.git)
+git clone [https://github.com/Shreyyaa17/pdf-compressor.git](https://github.com/YOUR_USERNAME/pdf-compressor.git)
 cd pdf-compressor
 ```
 
