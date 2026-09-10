@@ -5,11 +5,12 @@ import fs from "fs";
 const router = Router();
 
 router.get("/:fileId", (req: Request, res: Response): void => {
-  const { fileId } = req.params;
+  const fileIdParam = req.params.fileId;
 
-  // SECURITY: Ensure fileId is strictly a UUID (prevent path traversal attacks)
-  // UUIDs only contain letters, numbers, and hyphens.
-  if (!/^[a-zA-Z0-9-]+(\.pdf)?$/.test(fileId)) {
+  // TypeScript guard: Express route parameters can sometimes resolve as string | string[]
+  const fileId = Array.isArray(fileIdParam) ? fileIdParam[0] : fileIdParam;
+
+  if (!fileId || !/^[a-zA-Z0-9-]+(\.pdf)?$/.test(fileId)) {
     res.status(400).json({ error: "Invalid file ID." });
     return;
   }
