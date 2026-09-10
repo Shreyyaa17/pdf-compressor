@@ -1,0 +1,7 @@
+node_modules
+dist
+tmp_uploads/*
+tmp_outputs/*
+.env
+.git
+*.log
