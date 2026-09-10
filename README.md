@@ -50,8 +50,6 @@ git clone https://github.com/Shreyyaa17/pdf-compressor.git
 cd pdf-compressor
 ```
 
-## 🚀 Getting Started Locally
-
 ### 2. Backend Setup
 
 ```bash
